@@ -24,8 +24,8 @@ venue:
   type: "Working Group"
   mail: "mls@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/mls/"
-  github: "rohanmahy/mls-path-secret-commitment"
-  latest: "https://rohanmahy.github.io/mls-path-secret-commitment/draft-mahy-mls-updatepath-commitment.html"
+  github: "rohanmahy/mls-updatepath-commitment"
+  latest: "https://rohanmahy.github.io/mls-updatepath-commitment/draft-mahy-mls-updatepath-commitment.html"
 
 author:
  -
