@@ -109,11 +109,12 @@ Table of Contents
    private key corresponding to that public key.
 
    The Committer calculates the path_secret hash and a hash of its own
-   signature public key as follows: ~~~ path_secret_hash[n] =
-   RefHash("MLS 1.0 path secret hash", path_secret[n])
+   signature public key as follows:
+
+   path_secret_hash[n] = RefHash("MLS 1.0 path secret hash",
+                                 path_secret[n])
 
    committer_signature_key_hash = Hash(committer_signature_public_key)
-   ~~~
 
    Then the Committer:
 

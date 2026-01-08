@@ -1225,12 +1225,15 @@ It contains a hash of each path_secret, and the Committer's signature over the c
         </h3>
 <p id="section-3.1-1"><code>committer_signature_public_key</code> is the Committer's <code>LeafNode.signature_key</code>.
 <code>committer_signature_private_key</code> is the private key corresponding to that public key.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">The Committer calculates the <code>path_secret</code> hash and a hash of its own signature public key as follows:
-~~~
+<p id="section-3.1-2">The Committer calculates the <code>path_secret</code> hash and a hash of its own signature public key as follows:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.1-3">
+<pre>
 path_secret_hash[n] = RefHash("MLS 1.0 path secret hash",
-                              path_secret[n])<a href="#section-3.1-2" class="pilcrow">¶</a></p>
-<p id="section-3.1-3">committer_signature_key_hash = Hash(committer_signature_public_key)
-~~~<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+                              path_secret[n])
+
+committer_signature_key_hash = Hash(committer_signature_public_key)
+</pre><a href="#section-3.1-3" class="pilcrow">¶</a>
+</div>
 <p id="section-3.1-4">Then the Committer:<a href="#section-3.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.1-5.1">
@@ -1280,8 +1283,8 @@ VerifyWithLabel(committer_signature_public_key,
 </pre><a href="#section-3.2-2" class="pilcrow">¶</a>
 </div>
 <p id="section-3.2-3">Next each member checks the hash of each path_secret decrypted from the UpdatePath.
-If the path_secret[i] is encrypted to the receiving member, it decrypts the path_secret using the private key for the node as usual.
-If the path_secret_hash[i] is equal to RefHash("MLS 1.0 path secret hash", path_secret[i]), then the member confirms that the commitment is consistent for that member.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+If the <code>path_secret[i]</code> is encrypted to the receiving member, it decrypts the <code>path_secret</code> using the private key for the node as usual.
+If the <code>path_secret_hash[i]</code> is equal to <code>RefHash("MLS 1.0 path secret hash", path_secret[i])</code>, then the member confirms that the commitment is consistent for that member.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.2-4">If a member discovers that its path_secret does NOT match the hash provided, it has strong evidence that the Committer acted maliciously and can prove it.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
