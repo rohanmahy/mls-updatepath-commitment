@@ -67,6 +67,7 @@ It contains a hash of each path_secret, and the Committer's signature over the c
 `committer_signature_private_key` is the private key corresponding to that public key.
 
 The Committer calculates the `path_secret` hash and a hash of its own signature public key as follows:
+
 ~~~
 path_secret_hash[n] = RefHash("MLS 1.0 path secret hash",
                               path_secret[n])
@@ -112,8 +113,8 @@ VerifyWithLabel(committer_signature_public_key,
 ~~~
 
 Next each member checks the hash of each path_secret decrypted from the UpdatePath.
-If the path_secret[i] is encrypted to the receiving member, it decrypts the path_secret using the private key for the node as usual.
-If the path_secret_hash[i] is equal to RefHash("MLS 1.0 path secret hash", path_secret[i]), then the member confirms that the commitment is consistent for that member.
+If the `path_secret[i]` is encrypted to the receiving member, it decrypts the `path_secret` using the private key for the node as usual.
+If the `path_secret_hash[i]` is equal to `RefHash("MLS 1.0 path secret hash", path_secret[i])`, then the member confirms that the commitment is consistent for that member.
 
 If a member discovers that its path_secret does NOT match the hash provided, it has strong evidence that the Committer acted maliciously and can prove it.
 
